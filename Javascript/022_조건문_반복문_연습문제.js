@@ -220,3 +220,23 @@ function solution(my_string) {
         .map(v => v * 1)
         .sort((a, b) => a - b);
 }
+
+
+// advance 문제
+// fetch('http://test.api.weniv.co.kr/mall')
+// .then(data=>data.json())
+// .then(data=>console.log(data))
+
+fetch('http://test.api.weniv.co.kr/mall')
+    .then(data=>data.json())
+    .then(data=> {
+        let avg = 0
+        let count = 0
+        for (const i of data) {
+            avg += i.price
+            count++
+        }
+        avg = avg / data.length
+        console.log(count)
+        console.log(avg)
+    })

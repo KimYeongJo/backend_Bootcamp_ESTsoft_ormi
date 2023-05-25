@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .box {
+            border-radius: 5%;
+            border: 1px solid gainsboro;
+            height: 430px;
+            width: 250px;
+        }
+        .study_status {
+            padding-left: 15px
+        }
+        .thumbnail {
+            display: flex;
+            width: 250px;
+            height: 250px;
+        }
+        .difficulty {
+            padding-left: 15px;
+            border: 1px solid black;
+            border-radius: 15px;
+            width: 60px;
+            height: 30px;
+            margin-left: 10px;
+        }
+        .title {
+            white-space: pre-wrap;        
+        }
+    </style>
+</head>
+<body> 
+    <!-- 실제로는 통신으로 받아왔다고 가정합니다 -->
+    <script src="data2.js"></script>
+    <script>
+        console.log(data)
+        s = ''
+        for (const i of data) {
+        //     console.log(i.thumbnail)
+        //     console.log(i.difficulty)
+        //     console.log(i.title)
+        //     console.log(i.study_status)
+        s += `
+        <div class="flex-item">
+            <div class="box">
+                <p class="study_status">${i.study_status.name}</p>
+                <img class="thumbnail" src="${i.thumbnail}" alt="">
+                <p class="difficulty">${i.difficulty.name}</p>
+                <h3 class="title">${i.title}</h3>
+            </div>
+        </div>
+        `
+        }
+        document.querySelector('body').innerHTML = s
+    </script>
+</body>
+</html>
